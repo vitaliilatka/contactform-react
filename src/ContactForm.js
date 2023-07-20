@@ -6,12 +6,33 @@ const ContactForm = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         //submitting to server - to do later
         const data = { name, phone, email };
         setMessage('Sending data...');
         console.log(data);
+
+        try {
+            const response = await fetch('http://localhost:5000/add-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application.json',
+                },
+                body: JSON.stringify({ name, phone, email }),
+            });
+
+            if (response.ok) {
+                setMessage('Form added successfully');
+                setName('');
+                setPhone('');
+                setEmail('');
+            } else {
+                setMessage('Error: Unable to add form');
+            }
+        } catch (error) {
+            setMessage('Error: Unable to connect to server');
+        }
         //later to add logic for sending data to server
         //after successfull sending - need to reset form and get message
     };
