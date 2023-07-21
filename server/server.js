@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+const dbUri = process.env.DB_URI;
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const mongoURI = 'mongodb+srv://ilomask:1234@cluster0.olb0cun.mongodb.net/';
-
 //Connecting to MongoDB
-mongoose.connect(mongoURI, {
+mongoose.connect(dbUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -24,14 +24,19 @@ const Contact = mongoose.model('Contact', contactSchema);
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.status(200).json({ nessage: 'Use POST method to add a contact' });
+});
+
 app.post('/add-contact', async (req, res) => {
     const { name, phone, email } = req.body;
-    console.log('Recieved data:', { name, phone, email });
 
     try {
         //Creating new Contact in Database
         const newContact = new Contact({ name, phone, email });
         await newContact.save();
+        console.log('Recieved data:', { name, phone, email });
+        console.log('Contact added:', new Contact);
         //responsing to client
         res.status(200).json({ message: 'form added succesfully' });
     } catch (error) {

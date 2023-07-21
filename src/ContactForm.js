@@ -22,6 +22,8 @@ const ContactForm = () => {
                 body: JSON.stringify({ name, phone, email }),
             });
 
+            const data = await response.json();
+            console.log(data);
             if (response.ok) {
                 setMessage('Form added successfully');
                 setName('');
@@ -33,8 +35,6 @@ const ContactForm = () => {
         } catch (error) {
             setMessage('Error: Unable to connect to server');
         }
-        //later to add logic for sending data to server
-        //after successfull sending - need to reset form and get message
     };
 
     return (
