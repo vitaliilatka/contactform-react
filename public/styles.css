@@ -1,0 +1,52 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.App {
+    text-align: center;
+    margin: 20px;
+}
+
+.App h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #1864b6;
+}
+
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #a9afb1;
+}
+
+.form-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.form-button {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #0056b3;
+}
+
+.form-message {
+    margin-top: 10px;
+    color: #007bff;
+    font-weight: bold;
+}

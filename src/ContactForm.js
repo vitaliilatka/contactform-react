@@ -38,25 +38,45 @@ const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Name:
-                <input type='text' value={name} onChange={(e) => setName(e.target.value)}></input>
-            </label>
-            <br />
-            <label>
-                Phone:
-                <input type='text' value={phone} onChange={(e) => setPhone(e.target.value)}></input>
-            </label>
-            <br />
-            <label>
-                Email:
-                <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            </label>
-            <br />
-            <button type='submit'>Add Contact</button>
-            <p>{message}</p>
-        </form>
+        <div className='form-container'>
+            <h2>Contact Form</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    className='form-input'
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder='Name'
+                >
+                </input>
+                <br />
+                <input
+                    className='form-input'
+                    type='number'
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder='Phone number'
+                >
+                </input>
+                <br />
+                <input
+                    className='form-input'
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='Email'
+                >
+                </input>
+                <br />
+                <button
+                    className='form-button'
+                    type='submit'
+                >
+                    Add Contact
+                </button>
+                <p className='form-message'>{message}</p>
+            </form>
+        </div>
     );
 };
 
