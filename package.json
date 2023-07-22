@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "nodemon server/server",
-    "build": "npm run build"
+    "start:dev": "nodemon server/server",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
