@@ -22,8 +22,8 @@ const ContactForm = () => {
                 body: JSON.stringify({ name, phone, email }),
             });
 
-            const data = await response.json();
-            console.log(data);
+            const sendData = await response.json();
+            console.log(sendData);
             if (response.ok) {
                 setMessage('Form added successfully');
                 setName('');
