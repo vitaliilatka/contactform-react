@@ -21,9 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:dev": "nodemon server/server",
-    "build": "babel src -d lib",
-    "predeploy": "npm run build"
+    "start-server": "nodemon server/server",
+    "build": "npm run build"
   },
   "eslintConfig": {
     "extends": [
